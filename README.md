@@ -1,9 +1,9 @@
-### Hello, World! 👋 I'm Jen.
-I became a software engineer following a 6 year career in elementary education. I enjoy creating things that live on the internet and find the challenges that programming brings very exciting! Transitioning to tech has enabled me to continue my passion for learning and embrace my status as a forever student.
+### Hello, World! 👋 I'm Sidharth.
+I am an aspiring CS graduate. I enjoy creating things that live on the internet and find the challenges that programming brings very exciting! Transitioning from electronics to computer science to has enabled me to continue my passion for learning and embrace my status as a forever student.
 
-- Portfolio: <a href="https://rosajen27.github.io">rosajen27.github.io</a>
-- Linkedin: <a href="https://linkedin.com/in/rosajen27">linkedin.com/in/rosajen27</a>
-- Email: <a href="mailto:rosajen27@gmail.com">rosajen27@gmail.com</a>
+- Portfolio: <a href="https://Sidharth-Dinesh.github.io">Sidharth-Dinesh.github.io</a>
+- Linkedin: <a href="https://linkedin.com/in/sidharth-dinesh/">linkedin.com/in/sidharth-dinesh</a>
+- Email: <a href="mailto:sidharthdinesh@gmail.com">sidharthdinesh@gmail.com</a>
 
 ### Technologies:
 <img align="left" alt="HTML5" width="40px" src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg">
