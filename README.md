@@ -1,5 +1,5 @@
 ### Hello, World! 👋 I'm Sidharth.
-I am an aspiring CS graduate. I enjoy creating things that live on the internet and find the challenges that programming brings very exciting! Transitioning from electronics to computer science has enabled me to continue my passion for learning and embrace my status as a forever student.
+I am a Masters in Computer Science student at Arizona State University. I enjoy creating things that live on the internet and find the challenges that programming brings very exciting! Transitioning from electronics to computer science has enabled me to continue my passion for learning and embrace my status as a forever student.
 
 - Portfolio: <a href="https://Sidharth-Dinesh.github.io">Sidharth-Dinesh.github.io</a>
 - Linkedin: <a href="https://linkedin.com/in/sidharth-dinesh/">linkedin.com/in/sidharth-dinesh</a>
