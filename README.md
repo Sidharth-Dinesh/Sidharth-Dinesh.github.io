@@ -3,7 +3,7 @@ I am a Masters in Computer Science student at Arizona State University. I enjoy 
 
 - Portfolio: <a href="https://Sidharth-Dinesh.github.io">Sidharth-Dinesh.github.io</a>
 - Linkedin: <a href="https://linkedin.com/in/sidharth-dinesh/">linkedin.com/in/sidharth-dinesh</a>
-- Email: <a href="mailto:sidharthdinesh@gmail.com">sidharthdinesh@gmail.com</a>
+- Email: <a href="mailto:sdinesh@asu.edu">sdinesh@asu.edu</a>
 
 ### Technologies:
 <img align="left" alt="HTML5" width="40px" src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg">
