@@ -1,0 +1,633 @@
+{
+  "name": "Sidharth Dinesh",
+  "role": "Systems Analyst",
+  "affiliation": "Arizona State University",
+  "school": "W. P. Carey School of Business",
+  "location": "Tempe, Arizona",
+  "email": "sidharthdinesh@gmail.com",
+  "links": {
+    "github": "https://github.com/Sidharth-Dinesh",
+    "linkedin": "https://www.linkedin.com/in/sidharth-dinesh/"
+  },
+  "description": "Sidharth Dinesh, Systems Analyst at Arizona State University, with interests in spatial data systems, geographic analysis, and urban and environmental applications.",
+  "interests": [
+    {
+      "title": "Spatial and spatiotemporal data systems",
+      "text": "Spatial data management and scalable geocomputation, with an interest in trajectories, streaming observations, and data that change over time."
+    },
+    {
+      "title": "Spatial analysis and interactive mapping",
+      "text": "Spatial statistics and geovisualization for finding geographic patterns and exploring them through linked maps and timelines."
+    },
+    {
+      "title": "Urban and environmental applications",
+      "text": "Human mobility, pollution, climate, and disaster response. I am interested in combining geographic data sources and using geospatial AI to help investigate these problems."
+    }
+  ],
+  "projects": [
+    {
+      "id": "spatial-hotspots",
+      "title": "Spatiotemporal Hotspot Detection in NYC Taxi Data",
+      "tags": [
+        "Scala",
+        "Apache Spark",
+        "Spark SQL"
+      ],
+      "summary": "Finding where and when NYC taxi pickups cluster, using Scala and Apache Spark.",
+      "problem": "NYC taxi trips provide a way to study how pickup activity varies across a city and over time. This project combined spatial joins with statistical hotspot detection to identify regions with frequent pickups and location–day cells with unusually high activity.",
+      "approach": [
+        "Implemented spatial joins in Scala and Spark SQL to measure taxi pickup density across regions.",
+        "Mapped pickup coordinates and timestamps to a geographic grid with daily time intervals.",
+        "Computed Getis–Ord Gi* scores to identify unusually high pickup activity across nearby cells.",
+        "Used distributed aggregations and cached cell counts to rank the top 50 location–day hotspots."
+      ],
+      "scope": "Two analyses addressed different questions. Hot-zone analysis counted pickups inside rectangular regions. Hot-cell analysis assigned pickups to a geographic grid and daily intervals, then calculated Getis–Ord Gi* scores from neighboring cells. The Spark workflow cached cell counts and returned the 50 highest-scoring hotspots.",
+      "takeaway": "Neighborhood joins were a central processing challenge. Each cell had to be matched with nearby cells before its hotspot score could be calculated, making the cost of the join an important part of the implementation.",
+      "featured": true,
+      "url": "projects/spatial-hotspots/index.html",
+      "media": {
+        "type": "image",
+        "src": "assets/projects/nyc-taxi-map.webp",
+      },
+      "links": {
+        "code": "https://github.com/Sidharth-Dinesh/nyc-taxi-hotspot-analysis",
+        "demo": "",
+        "report": ""
+      }
+    },
+    {
+      "id": "dinosaur-visualization",
+      "title": "Interactive Map of Dinosaur Records",
+      "tags": [
+        "JavaScript",
+        "D3.js",
+        "GeoJSON"
+      ],
+      "summary": "Exploring 309 dinosaur records on a world map linked to a geological timeline.",
+      "problem": "This visualization brings together location and geological time for 309 dinosaur records. A linked world map and timeline let users select a period and see which records fall within it, making geographic patterns easier to compare across periods.",
+      "approach": [
+        "Mapped geographic coordinates for 309 dinosaur records in linked D3.js world-map and timeline views.",
+        "Implemented a draggable time selector to explore geographic distributions across geological periods.",
+        "Used color to distinguish dinosaur types and animated map updates across locations and time."
+      ],
+      "scope": "D3.js connects the draggable time selector to the map markers. Moving or resizing the selection updates the records shown, with colors distinguishing dinosaur groups and animated transitions helping users follow the changes. Locations come from the supplied dataset and are plotted on present-day continents.",
+      "takeaway": "Keeping the map and timeline in one view allows users to compare records across periods without moving between charts. The map shows recorded locations rather than a reconstruction of prehistoric continents.",
+      "featured": true,
+      "url": "projects/dinosaur-visualization/index.html",
+      "media": {
+        "type": "animation",
+        "src": "assets/projects/dinosaur-atlas.gif",
+        "alt": "Animated demonstration of the dinosaur map changing as the time selection moves",
+        "caption": "Moving the time selector updates the records shown on the map",
+        "poster": "assets/projects/dinosaur-poster.webp",
+        "preview_src": "assets/projects/dinosaur-preview-2x.gif"
+      },
+      "links": {
+        "code": "https://github.com/Sidharth-Dinesh/dinosaur-geovisualization",
+        "demo": "",
+        "report": "",
+        "video": "assets/projects/dinosaur-atlas.mp4"
+      }
+    },
+    {
+      "id": "cloud-classroom",
+      "title": "Student Recognition from Classroom Videos",
+      "tags": [
+        "Python",
+        "AWS Lambda",
+        "S3",
+        "DynamoDB",
+        "Docker",
+        "OpenFaaS"
+      ],
+      "summary": "Recognizing students in uploaded classroom videos and looking up their academic records.",
+      "problem": "The application turns uploaded classroom videos into student names and matching academic records. A video upload starts face recognition, followed by a DynamoDB lookup and a CSV file containing the results.",
+      "approach": [
+        "Implemented Python handlers for video recognition on AWS Lambda and OpenFaaS.",
+        "Queried DynamoDB for recognized students and generated CSV results for storage in Amazon S3.",
+        "Tested service integration and output correctness with a workload of 100 simultaneous uploads."
+      ],
+      "scope": "Python handlers connected video processing to student-record lookups and CSV output. The AWS version used Lambda and S3, while a second version ran OpenFaaS functions on a local Kubernetes cluster. The implementation work also included integration testing and documentation. Face recognition relied on an existing library.",
+      "takeaway": "Testing followed the full path from uploaded video to saved result. The workload of 100 simultaneous uploads checked how the services worked together and whether the expected output files were produced.",
+      "featured": false,
+      "url": "projects/cloud-classroom/index.html",
+      "media": {
+        "type": "image",
+        "src": "assets/projects/cloud-architecture.webp",
+        "alt": "Architecture linking S3 video uploads, Lambda face recognition, DynamoDB student data, and CSV results",
+        "caption": "AWS architecture for video uploads, face recognition, student-record lookup, and saved results"
+      },
+      "links": {
+        "code": "https://github.com/Sidharth-Dinesh/classroom-video-recognition",
+        "demo": "",
+        "report": ""
+      }
+    },
+    {
+      "id": "comment-volume",
+      "title": "Facebook Comment-Volume Prediction",
+      "tags": [
+        "Python",
+        "scikit-learn",
+        "TensorFlow",
+        "PCA"
+      ],
+      "summary": "Comparing four regression models to predict how many comments a Facebook post will receive.",
+      "problem": "This project examined whether a Facebook post’s attributes and previous activity could predict the number of comments it would receive in a future time window. Four regression approaches were compared on the same prediction task.",
+      "approach": [
+        "Evaluated Lasso, gradient boosting, random forest, and neural networks for comment prediction.",
+        "Scaled input features and applied PCA to reduce the prediction inputs to four components.",
+        "Compared prediction error and evaluation time across five variants of Facebook activity data."
+      ],
+      "scope": "The experiments covered five variants of the Facebook Comment Volume dataset. Feature scaling and PCA reduced the inputs to four principal components before fitting Lasso, gradient boosting, random forest, and neural-network models. Evaluation compared prediction errors and processing time.",
+      "takeaway": "Considering error alongside evaluation time provided a clearer comparison than accuracy alone. The analysis focused on the volume of comments, with no attempt to interpret their sentiment or content.",
+      "featured": false,
+      "url": "projects/comment-volume/index.html",
+      "media": {
+        "type": "image",
+        "src": "assets/projects/facebook-dataset.webp",
+        "alt": "Dataset slide showing Facebook comment-volume attributes and five training-set variants",
+        "caption": "Dataset overview adapted from the project presentation"
+      },
+      "links": {
+        "code": "https://github.com/Sidharth-Dinesh/facebook-comment-prediction",
+        "demo": "",
+        "report": ""
+      }
+    }
+  ],
+  "experience": [
+    {
+      "id": "advisingsos",
+      "title": "AdvisingSOS: undergraduate advising portal",
+      "role": "Systems Analyst",
+      "organization": "W. P. Carey School of Business, Arizona State University",
+      "period": "Apr 2024 – Present",
+      "summary": "I worked with the W. P. Carey application team on AdvisingSOS, a portal for undergraduate advising. My work included application features and database integration.",
+      "details": [
+        "Developed AdvisingSOS features for undergraduate advising using React, Node.js, and SQL Server.",
+        "Integrated SQL Server records with university data sources for advising and institutional reports."
+      ],
+      "tags": [
+        "React",
+        "Node.js",
+        "SQL Server",
+        "Docker",
+        "Alteryx",
+        "ServiceNow"
+      ],
+      "media": {
+        "type": "",
+        "src": "",
+        "poster": "",
+        "alt": "AdvisingSOS and institutional data",
+        "caption": "",
+        "transcript": "",
+        "captions": ""
+      },
+      "show_media": false,
+      "cv_summary": "Developed AdvisingSOS features for undergraduate advising using React, Node.js, and SQL Server. Integrated SQL Server records with university data sources for advising and institutional reports. Automated internship applications, status tracking, and faculty communications using Airtable. Configured Qualtrics assessments with category scoring, reverse-scored questions, and reports. Consolidated corporate-partner data across school departments in a shared Tableau dashboard. Helped develop an AI chatbot interface and integrated it into a learning platform through APIs."
+    },
+    {
+      "id": "airtable",
+      "title": "Internship-credit application workflow",
+      "role": "Faculty collaboration",
+      "organization": "W. P. Carey School of Business, Arizona State University",
+      "period": "Launched in 2025, with ongoing maintenance",
+      "summary": "I built an Airtable workflow for Prof. Elise Riker and her team to manage internship-credit applications. It replaced a process spread across Google Forms, spreadsheets, and manual emails.",
+      "details": [
+        "Set up application intake and review stages so staff can track each application.",
+        "Reused application information across stages and automated emails and status updates.",
+        "Maintained the workflow, fixed failed automations, and added alerts as the team used it."
+      ],
+      "tags": [
+        "Airtable",
+        "Workflow automation"
+      ],
+      "media": {
+        "type": "",
+        "src": "",
+        "poster": "",
+        "alt": "Internship-credit application workflow",
+        "caption": "",
+        "transcript": "",
+        "captions": ""
+      },
+      "show_media": false
+    },
+    {
+      "id": "ai-chatbot",
+      "title": "AI chatbot interface and platform integration",
+      "role": "Systems Analyst project",
+      "organization": "W. P. Carey School of Business, Arizona State University",
+      "period": "During my Systems Analyst role",
+      "summary": "I helped build an AI chatbot interface and connected it to a learning platform using APIs.",
+      "details": [
+        "Set up API access for the connection between the chatbot and the platform."
+      ],
+      "tags": [
+        "AI integration",
+        "APIs"
+      ],
+      "show_media": false
+    },
+    {
+      "id": "qualtrics",
+      "title": "Scored assessments and reports in Qualtrics",
+      "role": "Systems Analyst project",
+      "organization": "W. P. Carey School of Business, Arizona State University",
+      "period": "During my Systems Analyst role",
+      "summary": "I built two Qualtrics assessments for Prof. Luiz Mesquita, including scoring rules and reports for students and instructors. The surveys remain in use.",
+      "details": [
+        "Set up category scores for the 36-question DNA and 48-question Mindset assessments, with 5 and 12 reverse-scored questions respectively.",
+        "Added confirmation emails and reports for individual results and overall responses.",
+        "Tested the scoring and survey flow, documented the setup, and handed over survey ownership while remaining a collaborator."
+      ],
+      "tags": [
+        "Qualtrics",
+        "Survey scoring",
+        "Reporting"
+      ],
+      "show_media": false,
+      "media": {
+        "type": "",
+        "src": "",
+        "poster": "",
+        "alt": "Scored assessments and reports in Qualtrics",
+        "caption": "",
+        "transcript": "",
+        "captions": ""
+      }
+    },
+    {
+      "id": "corporate-partners",
+      "title": "Corporate Partners dashboard",
+      "role": "Systems Analyst project",
+      "organization": "W. P. Carey School of Business, Arizona State University",
+      "period": "During my Systems Analyst role",
+      "summary": "I created a Tableau dashboard that brought corporate-partner records together for Career Services, graduate programs, and Advancement.",
+      "details": [
+        "Combined records from spreadsheets into a dashboard that departments could use to review partner relationships.",
+        "Arranged access to Enterprise Partners Salesforce data and demonstrated the dashboard to the Dean and senior staff.",
+        "The project later shifted toward using Salesforce as the main source of partner information."
+      ],
+      "tags": [
+        "Tableau",
+        "Salesforce",
+        "Data consolidation"
+      ],
+      "show_media": false,
+      "media": {
+        "type": "",
+        "src": "",
+        "poster": "",
+        "alt": "Corporate Partners dashboard",
+        "caption": "",
+        "transcript": "",
+        "captions": ""
+      }
+    },
+    {
+      "id": "institutional-reporting",
+      "title": "Institutional data requests and reporting",
+      "role": "Systems Analyst project",
+      "organization": "W. P. Carey School of Business, Arizona State University",
+      "period": "During my Systems Analyst role",
+      "summary": "I prepared data extracts, reports, and dashboards for school departments.",
+      "details": [
+        "Used SQL Server and Alteryx to retrieve and prepare data for reporting requests.",
+        "Built Tableau dashboards and worked with staff to understand what they needed from the data."
+      ],
+      "tags": [
+        "SQL Server",
+        "Alteryx",
+        "Tableau"
+      ],
+      "show_media": false,
+      "media": {
+        "type": "",
+        "src": "",
+        "poster": "",
+        "alt": "Institutional data requests and reporting",
+        "caption": "",
+        "transcript": "",
+        "captions": ""
+      }
+    },
+    {
+      "id": "salesforce",
+      "title": "Institutional reporting and data quality",
+      "role": "Salesforce Data Analyst, Student Worker",
+      "organization": "Admission Services, Arizona State University",
+      "period": "Jul 2023 – Apr 2024",
+      "summary": "I supported admissions work across Salesforce, STOVA, and institutional data systems.",
+      "details": [
+        "Supported Salesforce integrations and STOVA event workflows for admissions operations.",
+        "Used SQL to review institutional records and investigate data inconsistencies across systems.",
+        "Cleaned and validated Salesforce admissions records, resolving duplicates and inconsistent data."
+      ],
+      "tags": [
+        "Salesforce",
+        "STOVA",
+        "SQL",
+        "Data quality"
+      ],
+      "media": {
+        "type": "",
+        "src": "",
+        "poster": "",
+        "alt": "Institutional reporting and data quality",
+        "caption": "",
+        "transcript": "",
+        "captions": ""
+      },
+      "show_media": false,
+      "cv_summary": "Supported Salesforce integrations and STOVA event workflows for admissions operations. Used SQL to review institutional records and investigate data inconsistencies across systems. Cleaned and validated Salesforce admissions records, resolving duplicates and inconsistent data."
+    },
+    {
+      "id": "chs-office-aide",
+      "title": "Student advising and recruitment support",
+      "role": "Office Aide, Student Success Hub",
+      "organization": "College of Health Solutions, Arizona State University",
+      "location": "Downtown Phoenix, AZ",
+      "period": "Mar 2023 – Aug 2023",
+      "summary": "Created Salesforce cases and maintained Excel records to support student advising and recruitment.",
+      "details": [],
+      "tags": [
+        "Salesforce",
+        "Excel"
+      ],
+      "show_media": false,
+      "cv_summary": "Created Salesforce cases and maintained Excel records to support student advising and recruitment."
+    },
+    {
+      "id": "iotiot",
+      "title": "Embedded control and video-stream processing",
+      "role": "Software Engineering Intern",
+      "organization": "IoTIoT.in, Pune, India",
+      "period": "Sep 2020 – Dec 2020",
+      "summary": "My internship covered remote control of an embedded device and processing live CCTV video.",
+      "details": [
+        "Developed C++ software to control a six-channel relay on a Linux-based Rock Pi S.",
+        "Parsed JSON commands received over MQTT and used libcurl for remote relay control.",
+        "Led three collaborators in debugging and testing live CCTV processing in Docker containers.",
+        "Used Shunya AI APIs to detect people and objects; stored detection timestamps in InfluxDB."
+      ],
+      "tags": [
+        "C++",
+        "Linux",
+        "Kafka",
+        "InfluxDB"
+      ],
+      "media": {
+        "type": "",
+        "src": "",
+        "poster": "",
+        "alt": "Embedded control and video-stream processing",
+        "caption": "",
+        "transcript": "",
+        "captions": ""
+      },
+      "show_media": false,
+      "cv_summary": "Developed C++ software to control a six-channel relay on a Linux-based Rock Pi S. Parsed JSON commands received over MQTT and used libcurl for remote relay control. Led three collaborators in debugging and testing live CCTV processing in Docker containers. Used Shunya AI APIs to detect people and objects; stored detection timestamps in InfluxDB."
+    }
+  ],
+  "education": [
+    {
+      "institution": "Arizona State University",
+      "degree": "Master of Computer Science",
+      "period": "Aug 2022 – May 2024",
+      "gpa": "3.90 / 4.00"
+    },
+    {
+      "institution": "VNIT Nagpur",
+      "degree": "BTech, Electronics and Communication Engineering",
+      "period": "Jul 2018 – May 2022",
+      "gpa": "8.69 / 10.00",
+      "rank": "Department rank: 12 of 141 students"
+    }
+  ],
+  "publication": {
+    "title": "Improved search and rescue optimization based load balancing scheme of CCTV footage on edge computing environment",
+    "authors": [
+      "Prasanna Deshpande",
+      "Sidharth Dinesh",
+      "Apurva Umredkar",
+      "Ashwin G. Kothari"
+    ],
+    "journal": "Concurrency and Computation: Practice and Experience",
+    "volume": "35",
+    "issue": "5",
+    "article": "e7556",
+    "year": 2023,
+    "doi": "https://doi.org/10.1002/cpe.7556",
+    "pdf": "https://drive.google.com/file/d/1Z7oruSYLC86ZRwnaQc4G6n34GGz3_QyO/view?usp=sharing",
+    "media": {
+      "type": "image",
+      "src": "assets/research/isrolbs-architecture.webp",
+      "alt": "ISROLBS load-balancing architecture showing users, a controller, virtual machines, and physical servers",
+      "caption": ""
+    },
+    "figures": [
+      {
+        "type": "image",
+        "src": "assets/research/isrolbs-architecture.webp",
+        "alt": "ISROLBS load-balancing architecture showing users, a controller, virtual machines, and physical servers",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "src": "assets/research/edge-video-context.webp",
+        "alt": "Background illustration of video sources and analysis tasks at the edge and in the cloud",
+        "caption": ""
+      }
+    ],
+    "repository": "https://github.com/Sidharth-Dinesh/edge-video-processing"
+  },
+  "thesis": {
+    "title": "A Cost-effective Edge Computing Framework for Video Processing",
+    "institution": "Visvesvaraya National Institute of Technology, Nagpur",
+    "period": "Jul 2021 – May 2022",
+    "advisor": "Prof. Ashwin G. Kothari",
+    "coauthor": "Apurva Umredkar",
+    "media": {
+      "type": "image",
+      "src": "assets/research/ddme-architecture.webp",
+      "alt": "DDME server coordinating edge agents that receive video streams from multiple cameras",
+      "caption": ""
+    },
+    "bullets": [
+      "Developed workload redistribution logic to balance video processing across edge servers.",
+      "Used video-buffer utilization to identify overloaded and underused edge servers.",
+      "Implemented server pairing to transfer video frames according to available processing capacity.",
+      "Compared processing latency and server workloads against an existing offloading method."
+    ],
+    "figures": [
+      {
+        "type": "image",
+        "src": "assets/research/ddme-architecture.webp",
+        "alt": "DDME server coordinating edge agents that receive video streams from multiple cameras",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "src": "assets/research/video-processing-pipeline.webp",
+        "alt": "Background illustration of video decoding, object detection, tracking, and data fusion",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "src": "assets/research/edge-cloud-context.webp",
+        "alt": "Background illustration of tasks shared between edge devices and cloud servers",
+        "caption": ""
+      }
+    ]
+  },
+  "talks": [
+    {
+      "title": "ASU Technologies: Beyond the Basics",
+      "venue": "W. P. Carey Professional Development Conference",
+      "date": "May 19, 2026",
+      "description": "I presented with Matt Clements on ASU data systems, Airtable, and AI tools at the W. P. Carey Professional Development Conference.",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/photos/asu-technologies-title.webp",
+          "alt": "Title slide for ASU Technologies: Beyond the Basics, presented by Matt Clements and Sidharth Dinesh",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "title": "Introduction to AI",
+      "venue": "Staff training, W. P. Carey School of Business",
+      "date": "",
+      "description": "I led a staff training session on ASU-approved AI tools, writing and refining prompts, checking responses, and handling student data responsibly. The session included demonstrations and hands-on practice.",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/photos/presenting-at-wpc.webp",
+          "alt": "Sidharth presenting at a workstation in a W. P. Carey meeting room",
+          "caption": "Presenting at W. P. Carey"
+        }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "type": "image",
+      "src": "assets/photos/asu-graduation.webp",
+      "alt": "Graduation photo in front of the ASU sign",
+      "caption": "Graduation"
+    },
+    {
+      "type": "image",
+      "src": "assets/photos/costume-day.webp",
+      "alt": "Colleagues in costumes posing for a group photograph",
+      "caption": "Halloween 2024"
+    },
+    {
+      "type": "image",
+      "src": "assets/photos/asu-open-door.webp",
+      "alt": "Sidharth with Sparky at an ASU Open Door event",
+      "caption": "With Sparky, the ASU mascot"
+    },
+    {
+      "type": "image",
+      "src": "assets/photos/colleagues-with-sparky.webp",
+      "alt": "An outdoor group photo with colleagues and the ASU mascot",
+      "caption": "With Sparky and Admission Services colleagues"
+    },
+    {
+      "type": "image",
+      "src": "assets/photos/employee-appreciation-2026.webp",
+      "alt": "Sidharth with a colleague at the ASU Employee Appreciation BBQ",
+      "caption": "Employee Appreciation BBQ"
+    },
+    {
+      "type": "image",
+      "src": "assets/photos/board-game-break-2026.webp",
+      "alt": "Sidharth and colleagues playing a board game at W. P. Carey",
+      "caption": "Board game break"
+    },
+    {
+      "type": "image",
+      "src": "assets/photos/office-desk.webp",
+      "alt": "Office desk with a laptop and monitor",
+      "caption": "TSO desk"
+    },
+    {
+      "type": "image",
+      "src": "assets/photos/shared-workspace.webp",
+      "alt": "A shared office workspace with desks and monitors",
+      "caption": "Admission Services desk"
+    },
+    {
+      "type": "image",
+      "src": "assets/photos/campus-workspace.webp",
+      "alt": "A workstation at ASU with two monitors",
+      "caption": "Desk at the College of Health Solutions"
+    }
+  ],
+  "skills": {
+    "Languages": "Python, SQL, JavaScript, Scala, C++",
+    "Data Systems": "PostgreSQL, SQL Server, Spark, DynamoDB, Kafka, InfluxDB",
+    "Cloud and Development": "AWS (S3, Lambda, ECR), Docker, Git, Linux, Node.js, React",
+    "Visualization": "D3.js, geographic maps, linked map–timeline views, Tableau, Power BI"
+  },
+  "cv_employment": [
+    {
+      "organization": "W. P. Carey School of Business, Arizona State University",
+      "location": "Tempe, AZ",
+      "role": "Systems Analyst",
+      "period": "Apr 2024 – Present",
+      "bullets": [
+        "Developed AdvisingSOS features for undergraduate advising using React, Node.js, and SQL Server.",
+        "Integrated SQL Server records with university data sources for advising and institutional reports.",
+        "Automated internship applications, status tracking, and faculty communications using Airtable.",
+        "Configured Qualtrics assessments with category scoring, reverse-scored questions, and reports.",
+        "Consolidated corporate-partner data across school departments in a shared Tableau dashboard.",
+        "Helped develop an AI chatbot interface and integrated it into a learning platform through APIs."
+      ]
+    },
+    {
+      "organization": "Admission Services, Arizona State University",
+      "location": "Tempe, AZ",
+      "role": "Salesforce Data Analyst, Student Worker",
+      "period": "Jul 2023 – Apr 2024",
+      "bullets": [
+        "Supported Salesforce integrations and STOVA event workflows for admissions operations.",
+        "Used SQL to review institutional records and investigate data inconsistencies across systems.",
+        "Cleaned and validated Salesforce admissions records, resolving duplicates and inconsistent data."
+      ]
+    },
+    {
+      "organization": "College of Health Solutions, Arizona State University",
+      "location": "Downtown Phoenix, AZ",
+      "role": "Office Aide, Student Success Hub",
+      "period": "Mar 2023 – Aug 2023",
+      "bullets": [
+        "Created Salesforce cases and maintained Excel records to support student advising and recruitment."
+      ]
+    },
+    {
+      "organization": "IoTIoT.in",
+      "location": "Pune, India",
+      "role": "Software Engineering Intern",
+      "period": "Sep 2020 – Dec 2020",
+      "bullets": [
+        "Developed C++ software to control a six-channel relay on a Linux-based Rock Pi S.",
+        "Parsed JSON commands received over MQTT and used libcurl for remote relay control.",
+        "Led three collaborators in debugging and testing live CCTV processing in Docker containers.",
+        "Used Shunya AI APIs to detect people and objects; stored detection timestamps in InfluxDB."
+      ]
+    }
+  ],
+  "recognition": "Received three Sun Awards: two for the W. P. Carey conference presentation and one for staff AI training.",
+  "presentation_bullets": [
+    "Presented on ASU data and Airtable at the WPC Professional Development Conference.",
+    "Led a staff AI session on ASU tools, effective prompting, and responsible data use.",
+    "Received three Sun Awards for the conference presentation and staff AI training."
+  ],
+  "mentor_summary": "Mentored 15 first-year students on academics, campus life, and online learning during COVID-19."
+}
